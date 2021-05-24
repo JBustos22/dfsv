@@ -36,5 +36,5 @@ docker run -d -t \
 -p 27960:27960/udp \
 -p 27960:27960/tcp \
 dfsv_image:latest
-docker cp servers/base/defrag/cfgs/q3config_server.cfg mixed_1:/dfsv/defrag/
-docker cp servers/base/defrag/cfgs/mixed.cfg mixed_1:/dfsv/defrag
+docker cp cfgs/q3config_server.cfg mixed_1:/dfsv/defrag/
+docker cp cfgs/mixed.cfg mixed_1:/dfsv/defrag
