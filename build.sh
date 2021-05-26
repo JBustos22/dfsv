@@ -18,7 +18,7 @@ mkdir $base/defrag/
 mv defrag/zz-* $base/defrag/
 rm -rf defrag*.zip defrag/
 
-# build docker image
-docker build -t dfsv_image .
-# create docker volume for containers to share game files
-docker volume create --driver local --opt type=none --opt device=$(pwd)/servers/base --opt o=bind dfsv 
+# get default maps
+./dlmap.sh st1
+./dlmap.sh amt-freestyle5
+./dlmap.sh ojdf-sa
