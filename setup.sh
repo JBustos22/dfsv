@@ -3,7 +3,7 @@ service docker start
 base=./servers/base/
 
 mkdir ./{maps,data}
-mkdir $base/baseq3 && mount --bind maps $base/baseq3
+mkdir $base/baseq3 && mount --bind $base/baseq3 maps
 
 # set up server backbone
 wget http://dl.defrag.racing/downloads/dfsv.tar.gz
