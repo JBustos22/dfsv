@@ -1,8 +1,8 @@
 # Important server metadata
-SV_BASE_HOSTNAME="^2Frog's Pond"
-SV_RCON="frogspond"
-SV_LOCATION="Atlanta, Georgia, USA"
-ADMIN_NAME="Frog"
+SV_BASE_HOSTNAME=""
+SV_RCON=""
+SV_LOCATION=""
+ADMIN_NAME=""
 
 # Server count configurables
 mixed_count=1
