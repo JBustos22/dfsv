@@ -1,2 +1,4 @@
 servers/base/
 docker-compose.yml
+maps/
+data/

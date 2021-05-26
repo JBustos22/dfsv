@@ -26,7 +26,7 @@ for CONFIGURABLE in SV_BASE_HOSTNAME SV_RCON SV_LOCATION ADMIN_NAME; do
 		read -p "Enter $CONFIGURABLE: " $CONFIGURABLE
 	fi
 done
-printf "\nServer Hostname: $SV_HOSTNAME\nAdmin: $ADMIN_NAME\nRcon Password: $SV_RCON\nServer Location: $SV_LOCATION\n\n"
+printf "\nServer Hostname: $SV_BASE_HOSTNAME\nAdmin: $ADMIN_NAME\nRcon Password: $SV_RCON\nServer Location: $SV_LOCATION\n\n"
 
 curr_port=27960
 rm -rf docker-compose.yml
@@ -39,7 +39,6 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
 	do
 		i=$(($i+1))
 		curr_name="${sv_type}_${i}"
-		curr_port=$(($curr_port+1))
 		curr_hostname="${SV_BASE_HOSTNAME} | ${sv_type^} ${i}"
 		printf "
   ${curr_name}:
@@ -63,8 +62,9 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - ADMIN_IRC=${ADMIN_IRC}
       - SV_MAPBASE=${SV_MAPBASE}
       - SV_HOMEPAGE=${SV_HOMEPAGE}" >> docker-compose.yml 2>&1
-	mkdir servers/base/defrag/$curr_name
+	mkdir servers/base/defrag/$curr_name &>/dev/null
 	cp cfgs/${sv_type}.cfg servers/base/defrag/$curr_name/main.cfg
+	curr_port=$(($curr_port+1))
 	done
 done
 printf "
