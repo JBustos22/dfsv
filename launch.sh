@@ -75,4 +75,4 @@ volumes:
       device: $(pwd)/servers/base
       o: bind
 " >> docker-compose.yml 2>&1
-docker-compose up -d
+docker-compose up --build -d

@@ -12,9 +12,8 @@ mv dfsv/*.dat $base/ && mv dfsv/baseq3/* $base/baseq3
 rm -rf dfsv dfsv.tar.gz
 
 # get latest defrag engine
-wget https://github.com/JBustos22/oDFe/releases/download/latest/oDFe-linux-x86_64.zip
-unzip oDFe-linux-x86_64.zip && rm oDFe.x64 oDFe-linux-x86_64.zip oDFe.vk.x64
-mv oDFe.ded.x64 $base/
+wget http://dl.defrag.racing/downloads/oDFe.ded
+mv oDFe.ded $base/
 
 # get latest defrag version
 wget $(cd /tmp/ && wget --spider -r --no-parent --no-check-certificate https://q3defrag.org/files/defrag/ 2>&1 | grep -E "\-\-2" | grep "defrag_" | grep -v "beta" | cut -d' ' -f4 | sort | tail -n1)
