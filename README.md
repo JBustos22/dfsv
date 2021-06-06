@@ -15,13 +15,13 @@ I will show the steps for vultr, as it is the easiest to set up.
 7. Click on "Deploy Now". Wait for server to finish installing
 8. Once finished, click on the instance to see the details. You will see ip, username, and password.
 9. From a Powershell window (should be installed in your windows already) or command line, execute the following command:
-`ssh root@ipofyourinstance`
+- `ssh root@ipofyourinstance`
 Enter the password
 10. Once inside, run the following commands
-`git clone https://github.com/JBustos22/dfsv.git`
-`cd ~/dfsv`
-`./install.sh`
-`./launch.sh`
+- `git clone https://github.com/JBustos22/dfsv.git`
+- `cd ~/dfsv`
+- `./install.sh`
+- `/launch.sh`
 11. Follow the instructions
 12. Run docker ps -a to see the running servers
 13. Connect to your instance's ip:27960 through a defrag client
@@ -41,7 +41,7 @@ Enter the password
 
 *Uploading maps*
 1. from the machine that contains the desired map, run (from a powershell window or command line):
-`scp path/to/your/map root@ipofyourinstance:/root/dfsv/maps/`
+- `scp path/to/your/map root@ipofyourinstance:/root/dfsv/maps/`
 2. Enter your instance's password.
 3. Restart your server from the game by callvoting the current map.
 4. Callvote your map
