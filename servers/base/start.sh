@@ -1,3 +1,4 @@
+#!/bin/bash
 printf "sets .admin-irc \"$ADMIN_IRC\"
 sets .admin-discord \"$ADMIN_DICORD\"
 sets .admin-mail \"$ADMIN_MAIL\"
@@ -11,7 +12,7 @@ seta df_sv_script_idleCfg \"${NAME_ID}/main.cfg\"
 seta g_log \"${NAME_ID}/${NAME_ID}.log\"
 " >> defrag/$NAME_ID/main.cfg 2>&1
 
-if [[ $MDD_ENABLED -eq 1 ]]
+if [ $MDD_ENABLED -eq 1 ]
 then
   export VM_GAME="0"
   printf  "seta rs_enable \"1\"
@@ -30,7 +31,7 @@ else
   export VM_GAME="2"
 fi
 
-if [[ $SV_PRIVATE -eq 1 ]]
+if [ $SV_PRIVATE -eq 1 ]
 then
   printf "seta g_password \"$SV_PASSWORD\"\n" >> defrag/$NAME_ID/main.cfg 2>&1
 fi
