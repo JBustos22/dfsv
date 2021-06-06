@@ -1,24 +1,4 @@
-# Important server metadata
-SV_BASE_HOSTNAME=""
-SV_RCON=""
-SV_LOCATION=""
-ADMIN_NAME=""
-
-# Server count configurables
-mixed_count=1
-cpm_count=1
-vq3_count=1
-fastcaps_count=1
-teamruns_count=1
-freestyle_count=1
-
-# Optional: Contact info
-ADMIN_MAIL=""
-ADMIN_JABBER=""
-ADMIN_IRC=""
-SV_MAPBASE="https://ws.q3df.org"
-SV_HOMEPAGE="discord.q3df.run"
-
+export $(grep -v '^#' servers.conf | xargs -d '\n')
 COUNTER=0
 for CONFIGURABLE in SV_BASE_HOSTNAME SV_RCON SV_LOCATION ADMIN_NAME; do
 	if [[ "${!CONFIGURABLE}" = "" ]]
