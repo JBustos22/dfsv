@@ -1,4 +1,4 @@
-apt update && apt -y install docker.io docker-compose unzip wget
+apt update && apt -y install docker.io docker-compose unzip wget nano
 service docker start
 base=$(pwd)/servers/base/
 
