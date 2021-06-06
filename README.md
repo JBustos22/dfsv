@@ -13,7 +13,7 @@ Options:
 3. Choose "Cloud Compute"
 4. Choose desired location
 5. Choose 64 Bit Ubuntu (latest version)
-6. Choose the $5/mo option (1 CPU 1 Mb RAM)
+6. Choose the $5/mo option (1 CPU 1 Mb RAM). (Billed per hour of usage)
 7. Click on "Deploy Now". Wait for server to finish installing
 8. Once finished, click on the instance to see the details. You will see ip, username, and password.
 9. From a Powershell window (should be installed in your windows already) or command line, execute the following command:
