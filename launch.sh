@@ -1,5 +1,6 @@
-export $(grep -v '^#' servers.conf | xargs -d '\n')
+export $(grep -v '^#' sv.conf | xargs -d '\n')
 COUNTER=0
+echo "Checking sv.conf for settings"
 for CONFIGURABLE in SV_BASE_HOSTNAME SV_RCON SV_LOCATION ADMIN_NAME; do
 	if [[ "${!CONFIGURABLE}" = "" ]]
 	then
@@ -8,6 +9,7 @@ for CONFIGURABLE in SV_BASE_HOSTNAME SV_RCON SV_LOCATION ADMIN_NAME; do
 done
 printf "\nServer Hostname: $SV_BASE_HOSTNAME\nAdmin: $ADMIN_NAME\nRcon Password: $SV_RCON\nServer Location: $SV_LOCATION\n\n"
 
+echo "Generating docker compose file"
 curr_port=27960
 rm -rf docker-compose.yml
 printf 'version: "3"\n' >> docker-compose.yml
@@ -31,6 +33,8 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
     volumes:
       - base:/dfsv
     environment:
+      - MDD_ENABLED=${MDD_ENABLED}
+      - RS_ID=
       - NAME_ID=${curr_name}
       - SV_TYPE=${sv_type}
       - SV_HOSTNAME=${curr_hostname}
@@ -38,7 +42,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - SV_LOCATION=${SV_LOCATION}
       - ADMIN_NAME=${ADMIN_NAME}
       - ADMIN_MAIL=${ADMIN_MAIL}
-      - ADMIN_JABBER=${ADMIN_JABBER}
+      - ADMIN_DISCORD=${ADMIN_DISCORD}
       - ADMIN_IRC=${ADMIN_IRC}
       - SV_MAPBASE=${SV_MAPBASE}
       - SV_HOMEPAGE=${SV_HOMEPAGE}" >> docker-compose.yml 2>&1
@@ -55,4 +59,10 @@ volumes:
       device: $(pwd)/servers/base
       o: bind
 " >> docker-compose.yml 2>&1
-docker-compose up --build -d
+read -p "Start servers now? (Y/n): " $REPLY
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Starting servers..."
+    docker-compose up --force-recreate -d
+    echo "All set! Check your server's connection with /connect $(hostname -I | cut -d' ' -f1) through a defrag client"
+fi
