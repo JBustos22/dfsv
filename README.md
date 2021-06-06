@@ -56,7 +56,7 @@ From the instance OS:
 3. Restart your server from the game by callvoting the current map.
 4. Callvote your map
 
-**Quickly migrating to a new location while keeping settings*
+**Quickly migrating to a new location while keeping settings**
 1. Once you have all your desired settings, you can create a snapshot for free (at the time of this writeup) on vultr.
 2. Click on the instance with all your settings
 3. Go to the 'snapshots' tab
