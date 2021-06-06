@@ -1,6 +1,6 @@
-export $(grep -v '^#' sv.conf | xargs -d '\n')
+source sv.conf
 COUNTER=0
-echo "Checking sv.conf for settings"
+echo "Checking sv.conf for required settings..."
 for CONFIGURABLE in SV_BASE_HOSTNAME SV_RCON SV_LOCATION ADMIN_NAME; do
 	if [[ "${!CONFIGURABLE}" = "" ]]
 	then
@@ -17,11 +17,12 @@ printf 'services:' >> docker-compose.yml 2>&1
 for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
 	i=0
 	sv_qty="${sv_type}_count"
+        sv_sfx="${sv_type}_sfx"
 	while [[ $i -ne "${!sv_qty}" ]]
 	do
 		i=$(($i+1))
 		curr_name="${sv_type}_${i}"
-		curr_hostname="${SV_BASE_HOSTNAME} | ${sv_type^} ${i}"
+		curr_hostname="${SV_BASE_HOSTNAME} ${!sv_sfx} ${i}"
 		printf "
   ${curr_name}:
     build: .
@@ -45,7 +46,9 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - ADMIN_DISCORD=${ADMIN_DISCORD}
       - ADMIN_IRC=${ADMIN_IRC}
       - SV_MAPBASE=${SV_MAPBASE}
-      - SV_HOMEPAGE=${SV_HOMEPAGE}" >> docker-compose.yml 2>&1
+      - SV_HOMEPAGE=${SV_HOMEPAGE}
+      - SV_PRIVATE=${SV_PRIVATE}
+      - SV_PASSWORD=${SV_PASSWORD}" >> docker-compose.yml 2>&1
 	mkdir servers/base/defrag/$curr_name &>/dev/null
 	cp cfgs/${sv_type}.cfg servers/base/defrag/$curr_name/main.cfg
 	curr_port=$(($curr_port+1))
@@ -64,5 +67,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Starting servers..."
     docker-compose up --force-recreate -d
+    mount --bind $(pwd)/servers/base/baseq3 ./maps
     echo "All set! Check your server's connection with /connect $(hostname -I | cut -d' ' -f1) through a defrag client"
 fi
