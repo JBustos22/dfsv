@@ -1,4 +1,5 @@
 **Renting a VPS**
+
 Options:
 - https://www.vultr.com/ < cheap and good quality
 - https://aws.amazon.com/
