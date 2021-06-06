@@ -1,13 +1,14 @@
-*Renting a VPS*
-  Options:
-  https://www.vultr.com/ < cheap and good quality
-  https://aws.amazon.com/
-  https://azure.microsoft.com/en-us/
-  https://www.digitalocean.com/
-  https://www.linode.com/
-I will show the steps for vultr, as it is the easiest to set up.
+**Renting a VPS**
+Options:
+- https://www.vultr.com/ < cheap and good quality
+- https://aws.amazon.com/
+- https://azure.microsoft.com/en-us/
+- https://www.digitalocean.com/
+- https://www.linode.com/
+
+*I will show the steps for vultr, as it is the easiest to set up.*
 1. Sign up
-2. Click on the big + sign or find "Deploy New Server"
+2. Click on the big '+' sign or find "Deploy New Server"
 3. Choose "Cloud Compute"
 4. Choose desired location
 5. Choose 64 Bit Ubuntu (latest version)
@@ -26,7 +27,7 @@ I will show the steps for vultr, as it is the easiest to set up.
 12. Run docker ps -a to see the running servers
 13. Connect to your instance's ip:27960 through a defrag client
 
-*Customization*
+**Customization**
 1. ssh into your instance
 2. run `cd ~/dfsv`
 3. run `nano sv.conf`
@@ -39,7 +40,7 @@ I will show the steps for vultr, as it is the easiest to set up.
 9. rerun `./launch.sh` and to apply changes
 10. run `docker ps -a` to see your deployed servers and their ports
 
-*Uploading maps*
+**Uploading maps**
 From your local PC:
 1. from the machine that contains the desired map, run (from a powershell window or command line):
 - `scp path/to/your/map root@ipofyourinstance:/root/dfsv/maps/`
