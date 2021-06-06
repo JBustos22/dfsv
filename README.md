@@ -53,3 +53,13 @@ From the instance OS:
 
 3. Restart your server from the game by callvoting the current map.
 4. Callvote your map
+
+**Quickly migrating to a new location while keeping settings*
+1. Once you have all your desired settings, you can create a snapshot for free (at the time of this writeup) on vultr.
+2. Click on the instance with all your settings
+3. Go to the 'snapshots' tab
+4. Create snapshot, enter whatever name suitable.
+5. Re-do the deployment steps from the beginning of this readme, this type choosing "Snapshot" instead of "64 Bit OS"
+6. Choose the snapshot with the name you chose in step 4.
+7. Deploy. Once done installing, everything will be up but in your new location. Try connecting via defrag.
+8. Destroy unused instances to avoid unecessary billing.
