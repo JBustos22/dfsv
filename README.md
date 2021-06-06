@@ -42,15 +42,17 @@ Options:
 10. run `docker ps -a` to see your deployed servers and their ports
 
 **Uploading maps**
+
 From your local PC:
 1. from the machine that contains the desired map, run (from a powershell window or command line):
 - `scp path/to/your/map root@ipofyourinstance:/root/dfsv/maps/`
 2. Enter your instance's password.
+3. Restart your server from the game by callvoting the current map.
+4. Callvote your map
 
 From the instance OS:
 1. run `cd ~/dfsv/maps`
 2. run `wget link-to-map`
-
 3. Restart your server from the game by callvoting the current map.
 4. Callvote your map
 
