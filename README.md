@@ -18,8 +18,7 @@ Options:
 8. Once finished, click on the instance to see the details. You will see ip, username, and password.
 9. From a Powershell window (should be installed in your windows already) or command line, execute the following command:
 - `ssh root@ipofyourinstance`
-- Enter the password
-10. Once inside, run the following commands
+- Enter the password, proceed to next section.
 
 **Deploying the servers**
 1. In your linux system, execute the following lines
