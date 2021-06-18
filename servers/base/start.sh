@@ -26,7 +26,7 @@ seta rs_mod_path \"defrag/modules\"
 seta rs_banTimerReset \"0\"
 seta df_obs_KillObs \"1\"
 seta rs_modules \"admin challenge compare find login logout mapdownload mapinfo me my mytime oldmytime oldrank oldtime oldtop popular random rank rankings ranktime ratemap recent servers time top user version who\"
-" >> defrag/$NAME_ID/main.cfg 2&>1
+" >> defrag/$NAME_ID/main.cfg 2>&1
 else
   export VM_GAME="2"
 fi
