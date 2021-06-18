@@ -1,4 +1,4 @@
-**Renting a VPS**
+**Renting a VPS (*If you have your linux system ready, feel free skip ahead to the next section")**
 
 Options:
 - https://www.vultr.com/ < cheap and good quality
