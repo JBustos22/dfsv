@@ -1,3 +1,4 @@
+docker-compose down -v
 source sv.conf
 COUNTER=0
 echo "Checking sv.conf for required settings..."
@@ -33,6 +34,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - \"${curr_port}:27960/tcp\"
     volumes:
       - base:/dfsv
+      - maps:/dfsv/nfs/maps
     environment:
       - MDD_ENABLED=${MDD_ENABLED}
       - RS_ID=
@@ -51,9 +53,10 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - SV_PASSWORD=${SV_PASSWORD}" >> docker-compose.yml 2>&1
 	mkdir servers/base/defrag/$curr_name &>/dev/null
 	cp cfgs/${sv_type}.cfg servers/base/defrag/$curr_name/main.cfg
-	curr_port=$(($curr_port+1))
+        curr_port=$(($curr_port+1))
 	done
 done
+rm servers/base/defrag/q3config_server.cfg
 printf "
 volumes:
   base:
@@ -61,12 +64,16 @@ volumes:
       type: none
       device: $(pwd)/servers/base
       o: bind
+  maps:
+    driver_opts:
+      type: \"nfs\"
+      o: \"addr=212.24.100.183,ac,actimeo=9999\"
+      device: \":/nfs/bsp\"
 " >> docker-compose.yml 2>&1
 read -p "Start servers now? (Y/n): " $REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Starting servers..."
     docker-compose up --force-recreate -d
-    mount --bind $(pwd)/servers/base/baseq3 ./maps
     echo "All set! Check your server's connection with /connect $(hostname -I | cut -d' ' -f1) through a defrag client"
 fi
