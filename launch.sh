@@ -1,4 +1,4 @@
-docker-compose down -v
+docker-compose down
 source sv.conf
 COUNTER=0
 echo "Checking sv.conf for required settings..."
@@ -12,13 +12,14 @@ printf "\nServer Hostname: $SV_BASE_HOSTNAME\nAdmin: $ADMIN_NAME\nRcon Password:
 
 echo "Generating docker compose file"
 curr_port=27960
-rm -rf docker-compose.yml
+rm -rf docker-compose.yml &>/dev/null
 printf 'version: "3"\n' >> docker-compose.yml
 printf 'services:' >> docker-compose.yml 2>&1
 for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
 	i=0
 	sv_qty="${sv_type}_count"
         sv_sfx="${sv_type}_sfx"
+        curr_id="rs${curr_port}"
 	while [[ $i -ne "${!sv_qty}" ]]
 	do
 		i=$(($i+1))
@@ -37,7 +38,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - maps:/dfsv/nfs/maps
     environment:
       - MDD_ENABLED=${MDD_ENABLED}
-      - RS_ID=
+      - RS_ID=${!curr_id}
       - NAME_ID=${curr_name}
       - SV_TYPE=${sv_type}
       - SV_HOSTNAME=${curr_hostname}
@@ -56,7 +57,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
         curr_port=$(($curr_port+1))
 	done
 done
-rm servers/base/defrag/q3config_server.cfg
+rm servers/base/defrag/q3config_server.cfg &>/dev/null
 printf "
 volumes:
   base:
