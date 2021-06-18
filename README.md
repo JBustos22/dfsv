@@ -20,13 +20,16 @@ Options:
 - `ssh root@ipofyourinstance`
 - Enter the password
 10. Once inside, run the following commands
+
+**Deploying the servers**
+1. In your linux system, execute the following lines
 - `git clone https://github.com/JBustos22/dfsv.git`
-- `cd ~/dfsv`
+- `cd dfsv`
 - `./install.sh`
 - `/launch.sh`
-11. Follow the instructions
-12. Run docker ps -a to see the running servers
-13. Connect to your instance's ip:27960 through a defrag client
+2. Follow the instructions on the command line
+3. Run docker ps -a to see the running servers if you chose to start them
+4. Connect to `your instance's ip:port` through a defrag client
 
 **Customization**
 1. ssh into your instance
@@ -42,6 +45,8 @@ Options:
 10. run `docker ps -a` to see your deployed servers and their ports
 
 **Uploading maps**
+
+After following the previous steps, you will have all current maps on ws.q3df.org available on your server. However, if you'd like to upload custom maps or maps not present in world spawn, continue
 
 From your local PC:
 1. from the machine that contains the desired map, run (from a powershell window or command line):
