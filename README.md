@@ -1,3 +1,8 @@
+Minimum requirements: 
+- 64 bit Debian-based Linux system
+- 500 MB RAM
+- 7 GB Storage
+
 **Renting a VPS (*If you have your linux system ready, feel free skip ahead to the next section*)**
 
 Options:
