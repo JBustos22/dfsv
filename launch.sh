@@ -1,4 +1,4 @@
-docker-compose down
+sudo docker-compose down
 source sv.conf
 COUNTER=0
 echo "Checking sv.conf for required settings..."
@@ -52,12 +52,12 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - SV_HOMEPAGE=${SV_HOMEPAGE}
       - SV_PRIVATE=${SV_PRIVATE}
       - SV_PASSWORD=${SV_PASSWORD}" >> docker-compose.yml 2>&1
-	mkdir servers/base/defrag/$curr_name &>/dev/null
-	cp cfgs/${sv_type}.cfg servers/base/defrag/$curr_name/main.cfg
+	sudo mkdir servers/base/defrag/$curr_name &>/dev/null
+	sudo cp cfgs/${sv_type}.cfg servers/base/defrag/$curr_name/main.cfg
         curr_port=$(($curr_port+1))
 	done
 done
-rm servers/base/defrag/q3config_server.cfg &>/dev/null
+sudo rm servers/base/defrag/q3config_server.cfg &>/dev/null
 printf "
 volumes:
   base:
@@ -75,6 +75,6 @@ read -p "Start servers now? (Y/n): " $REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Starting servers..."
-    docker-compose up --force-recreate -d
+    sudo docker-compose up --force-recreate -d
     echo "All set! Check your server's connection with /connect $(hostname -I | cut -d' ' -f1) through a defrag client"
 fi
