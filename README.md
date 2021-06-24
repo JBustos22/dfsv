@@ -29,8 +29,8 @@ Options:
 1. In your linux system, execute the following lines
 - `git clone https://github.com/JBustos22/dfsv.git`
 - `cd dfsv`
-- `./install.sh`
-- `/launch.sh`
+- `sudo ./install.sh`
+- `sudo ./launch.sh`
 2. Follow the instructions on the command line
 3. Run docker ps -a to see the running servers if you chose to start them
 4. Connect to `your instance's ip:port` through a defrag client
