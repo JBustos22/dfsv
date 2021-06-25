@@ -36,6 +36,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
     volumes:
       - base:/dfsv
       - maps:/dfsv/nfs/maps
+    restart: always
     environment:
       - MDD_ENABLED=${MDD_ENABLED}
       - RS_ID=${!curr_id}
