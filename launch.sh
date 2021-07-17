@@ -19,9 +19,9 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
 	i=0
 	sv_qty="${sv_type}_count"
         sv_sfx="${sv_type}_sfx"
-        curr_id="rs${curr_port}"
 	while [[ $i -ne "${!sv_qty}" ]]
 	do
+		curr_id="rs${curr_port}"
 		i=$(($i+1))
 		curr_name="${sv_type}_${i}"
 		curr_hostname="${SV_BASE_HOSTNAME} ${!sv_sfx} ${i}"
