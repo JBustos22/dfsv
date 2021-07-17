@@ -1,0 +1,11 @@
+[Unit]
+Description=Defrag server container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+ExecStart=sudo docker-compose -f /home/ubuntu/dfsv/docker-compose.yml up -d
+
+[Install]
+WantedBy=default.target

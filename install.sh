@@ -9,12 +9,12 @@ rm -rf temp && mkdir temp
 cd temp
 
 # set up server backbone
-wget http://dl.defrag.racing/downloads/dfsv.tar.gz
+wget http://212.24.100.183/downloads/dfsv.tar.gz
 tar -xvzf dfsv.tar.gz
 mv dfsv/*.dat $base/ && mv dfsv/baseq3/* $base/baseq3
 
 # get latest defrag engine
-wget http://dl.defrag.racing/downloads/oDFe.ded
+wget http://212.24.100.183/downloads/oDFe.ded
 mv oDFe.ded $base/
 
 # get latest defrag version
@@ -24,7 +24,7 @@ mkdir $base/defrag/
 mv defrag/zz-* $base/defrag/
 
 # get recordsystem modules
-wget http://dl.defrag.racing/downloads/rs.tar.gz
+wget http://212.24.100.183/downloads/rs.tar.gz
 tar -xvzf rs.tar.gz
 mv defrag/modules $base/defrag/ && mv defrag/qagame* $base/defrag/qagamei386.so
 
