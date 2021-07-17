@@ -30,7 +30,7 @@ Options:
 - `git clone https://github.com/JBustos22/dfsv.git`
 - `cd dfsv`
 - `sudo ./install.sh`
-- `sudo ./launch.sh`
+- `./launch.sh`
 2. Follow the instructions on the command line
 3. Run docker ps -a to see the running servers if you chose to start them
 4. Connect to `your instance's ip:port` through a defrag client
