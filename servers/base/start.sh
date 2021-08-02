@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo cp /cfgs/$SV_TYPE.cfg /dfsv/defrag/$NAME_ID/main.cfg
+cp /cfgs/$SV_TYPE.cfg /dfsv/defrag/$NAME_ID/main.cfg
 
 printf "sets .admin-irc \"$ADMIN_IRC\"
 sets .admin-discord \"$ADMIN_DICORD\"
