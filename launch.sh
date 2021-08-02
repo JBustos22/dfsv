@@ -36,6 +36,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
     volumes:
       - base:/dfsv
       - maps:/dfsv/nfs/maps
+      - cfgs:/cfgs
     restart: always
     environment:
       - MDD_ENABLED=${MDD_ENABLED}
@@ -71,6 +72,11 @@ volumes:
       type: \"nfs\"
       o: \"addr=212.24.100.183,ac,actimeo=9999\"
       device: \":/nfs/bsp\"
+  cfgs:
+    driver_opts:
+      type: none
+      device: $(pwd)/cfgs
+      o: bind
 " >> docker-compose.yml 2>&1
 read -p "Start servers now? (Y/n): " $REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
