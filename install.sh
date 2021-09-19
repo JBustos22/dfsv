@@ -18,7 +18,7 @@ wget http://212.24.100.183/downloads/oDFe.ded
 mv oDFe.ded $base/
 
 # get latest defrag version
-wget $(wget --spider -r --no-parent --no-check-certificate https://q3defrag.org/files/defrag/ 2>&1 | grep -E "\-\-2" | grep "defrag_" | grep -v "beta" | cut -d' ' -f4 | sort | tail -n1)
+wget --no-check-certificate $(wget --spider -r --no-parent --no-check-certificate https://q3defrag.org/files/defrag/ 2>&1 | grep -E "\-\-2" | grep "defrag_" | grep -v "beta" | cut -d' ' -f4 | sort | tail -n1)
 unzip -o defrag*.zip
 mkdir $base/defrag/
 mv defrag/zz-* $base/defrag/
