@@ -31,8 +31,8 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
     image: dfsv:latest
     container_name: ${curr_name}
     ports:
-      - \"${curr_port}:27960/udp\"
-      - \"${curr_port}:27960/tcp\"
+      - \"${curr_port}:${curr_port}/udp\"
+      - \"${curr_port}:${curr_port}/tcp\"
     volumes:
       - base:/dfsv
       - maps:/dfsv/nfs/maps
@@ -45,6 +45,7 @@ for sv_type in mixed cpm vq3 fastcaps teamruns freestyle;do
       - SV_HOSTNAME=${curr_hostname}
       - SV_RCON=${SV_RCON}
       - SV_LOCATION=${SV_LOCATION}
+      - SV_PORT=${curr_port}
       - ADMIN_NAME=${ADMIN_NAME}
       - ADMIN_MAIL=${ADMIN_MAIL}
       - ADMIN_DISCORD=${ADMIN_DISCORD}
@@ -78,4 +79,6 @@ then
     echo "Starting servers..."
     sudo docker-compose up --force-recreate -d
     echo "All set! Check your server's connection with /connect $(hostname -I | cut -d' ' -f1) through a defrag client"
+else
+    echo "To start servers, use: 'docker-compose up -d'"
 fi
