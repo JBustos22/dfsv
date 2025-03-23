@@ -10,7 +10,7 @@ seta rconPassword \"$SV_RCON\"
 seta sv_hostname \"$SV_HOSTNAME\"
 seta df_sv_script_idleCfg \"${NAME_ID}/main.cfg\"
 seta g_log \"${NAME_ID}/${NAME_ID}.log\"
-" >> defrag/$NAME_ID/main.cfg 2>&1
+" > defrag/$NAME_ID/main.cfg 2>&1
 
 if [ $MDD_ENABLED -eq 1 ]
 then
@@ -26,32 +26,32 @@ seta rs_mod_path \"defrag/modules\"
 seta rs_banTimerReset \"0\"
 seta df_obs_KillObs \"1\"
 seta rs_modules \"admin challenge compare find login logout mapdownload mapinfo me my mytime oldmytime oldrank oldtime oldtop popular random rank rankings ranktime ratemap recent servers time top user version who\"
-" >> defrag/$NAME_ID/main.cfg 2>&1
+" > defrag/$NAME_ID/main.cfg 2>&1
 else
   export VM_GAME="2"
 fi
 
 if [ $SV_PRIVATE -eq 1 ]
 then
-  printf "seta g_password \"$SV_PASSWORD\"\n" >> defrag/$NAME_ID/main.cfg 2>&1
+  printf "seta g_password \"$SV_PASSWORD\"\n" > defrag/$NAME_ID/main.cfg 2>&1
 fi
 
 case $SV_TYPE in
 
   mixed | vq3 | cpm)
-    printf "map st1" >> defrag/$NAME_ID/main.cfg 2>&1
+    printf "map st1" > defrag/$NAME_ID/main.cfg 2>&1
     ;;
 
   fastcaps)
-    printf "map q3ctf1" >> defrag/$NAME_ID/main.cfg 2>&1
+    printf "map q3ctf1" > defrag/$NAME_ID/main.cfg 2>&1
     ;;
 
   teamruns)
-    printf "map ojdf-sa" >> defrag/$NAME_ID/main.cfg 2>&1
+    printf "map ojdf-sa" > defrag/$NAME_ID/main.cfg 2>&1
     ;;
 
   freestyle)
-    printf "devmap amt-freestyle6" >> defrag/$NAME_ID/main.cfg 2>&1
+    printf "devmap amt-freestyle6" > defrag/$NAME_ID/main.cfg 2>&1
     ;;
 esac
 
