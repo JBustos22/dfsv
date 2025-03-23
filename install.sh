@@ -24,7 +24,7 @@ mkdir $base/defrag/
 mv defrag/zz-* $base/defrag/
 
 # get recordsystem modules
-wget http://212.24.100.183/downloads/rs.tar.gz
+wget https://dl.q3df.run/downloads/rs.tar.gz
 tar -xvzf rs.tar.gz
 mv defrag/modules $base/defrag/ && mv defrag/qagame* $base/defrag/qagamei386.so
 
@@ -34,4 +34,4 @@ rm -rf temp
 # get default maps
 ./dlmap.sh st1
 ./dlmap.sh amt-freestyle6
-./dlmap.sh ojdf-sa
+./dlmap.sh ojdf-sa``

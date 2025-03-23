@@ -1,0 +1,55 @@
+CLI
+
+dfsv create (mixed|free|vq3|cpm|team|fc) (--count # --run --mdd_id --port)
+# creates a new server
+# count: create in bulk
+# run: run server after creating
+# mdd_id: mdd id for the server if mdd server
+# port: port for the server (must be specified if mdd_id and match what's in mdd db)
+
+dfsv run <server>
+
+dfsv list
+# lists all servers that are configured, shows if running or stopped
+
+dfsv restart mixed_2
+# restarts mixed_2
+
+dfsv configure <server> <cvar> (new value)
+# gets value if unspecified, sets value if specified
+
+dfsv upgrade <server | all> --version
+upgrades defrag version of server or all
+latest if unspecified version
+
+dfsv check (server)
+# performs a series of healthcheck
+# checks udp port
+# checks maps mount
+# checks mdd connection if applicable
+
+dfsv remove <server>
+# removes server
+
+dfsv describe <server>
+# gets some info
+
+dfsv convert <server> <type> --permanent
+# converts an existing server to another type
+
+dfsv demo backup
+
+ideas. What should be decentralized?
+anti-cheat? everyone agrees on anti-cheat code, everyone verifies that anti-cheat code is running
+against a given serverdemo.
+
+you can mine df blockchain for dfcoins - use proof-of-stake, or maybe run on eth
+
+what can you buy with dfcoin
+- demos that are for sale
+- server alone time
+- custom models
+- private maps
+
+serverdemos?
+send key to get serverdemo, user receives it, or even file transfer
